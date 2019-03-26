@@ -1,0 +1,188 @@
+unit AccessAdapterUnit;
+
+interface
+
+uses
+  SysUtils {StrToInt} ,
+  Data.DB, Data.Win.ADODB,
+  System.Generics.Collections {TDictionary} ,
+  AdaptersUnit;
+
+type
+  AccessAdapter = class(TInterfacedObject, adapters)
+  private
+    FileName: string;
+    caption: string;
+    ADOConnection: TADOConnection;
+  public
+    procedure connectFileName;
+    function getQuest: TList<string>;
+    function getAnswerTrue: TDictionary<string, integer>;
+    function getAnswerFalse: TDictionary<string, integer>;
+    function getMenu: TList<string>;
+    procedure setTest;
+  published
+    constructor create(caption: string);
+  end;
+
+implementation
+
+{ AccessAdapter }
+
+procedure AccessAdapter.connectFileName;
+begin
+  ADOConnection := TADOConnection.create(nil);
+  with (ADOConnection) do
+  begin
+    Provider := 'Microsoft.ACE.OLEDB.12.0';
+    Mode := cmShareDenyNone;
+    LoginPrompt := False;
+    ConnectionString := 'Provider=Microsoft.ACE.OLEDB.12.0;' +
+      'Data source='+FileName+';' + 'Persist Security Info=False';
+    Connected := true;
+  end;
+end;
+
+constructor AccessAdapter.create(caption: string);
+begin
+  Self.FileName:=FileName;
+end;
+
+function AccessAdapter.getAnswerFalse: TDictionary<string, integer>;
+var
+  ADOQuery: TADOQuery;
+  answerFalse: string;
+begin
+  result := TDictionary<string, integer>.create;
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT answerFalse FROM Main WHERE caption="' + Self.caption + '";');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  answerFalse := ADOQuery.FieldByName('answerFalse').AsString;
+  with (ADOQuery) do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT quest_id, caption FROM ' + answerFalse + ';');
+    Open;
+    Active := true;
+  end;
+  while not ADOQuery.Eof do
+  begin
+    result.Add(ADOQuery.FieldByName('caption').AsString,
+                ADOQuery.FieldByName('quest_id').AsInteger);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
+function AccessAdapter.getAnswerTrue: TDictionary<string, integer>;
+var
+  ADOQuery: TADOQuery;
+  answerTrue: string;
+begin
+  result := TDictionary<string, integer>.create;
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT answerTrue FROM Main WHERE caption="' + Self.caption + '";');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  answerTrue := ADOQuery.FieldByName('answerTrue').AsString;
+  with (ADOQuery) do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT quest_id, caption FROM ' + answerTrue + ';');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  while not ADOQuery.Eof do
+  begin
+    result.Add(ADOQuery.FieldByName('caption').AsString,
+                ADOQuery.FieldByName('quest_id').AsInteger);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
+function AccessAdapter.getMenu: TList<string>;
+var
+  ADOQuery: TADOQuery;
+  DataSource: TDataSource;
+begin
+  connectFileName;
+  result := TList<string>.create;
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT caption FROM Main;');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  while not ADOQuery.Eof do
+  begin
+    result.Add(ADOQuery.FieldByName('caption').AsString);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
+function AccessAdapter.getQuest: TList<string>;
+var
+  ADOQuery: TADOQuery;
+  quest: string;
+begin
+  result := TList<string>.create;
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT quest FROM Main WHERE caption="' + Self.caption + '";');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  quest := ADOQuery.FieldByName('quest').AsString;
+  with (ADOQuery) do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT caption FROM ' + quest + ';');
+    Open;
+    Active := true;
+  end;
+  ADOQuery.First;
+  while not ADOQuery.Eof do
+  begin
+    result.Add(ADOQuery.FieldByName('caption').AsString);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
+procedure AccessAdapter.setTest;
+begin
+  self.caption:=caption;
+end;
+
+end.

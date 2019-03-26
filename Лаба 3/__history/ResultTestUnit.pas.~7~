@@ -1,0 +1,13 @@
+unit ResultTestUnit;
+
+interface
+
+uses AdaptersUnit;
+
+type
+  ResultTest = class
+  end;
+
+implementation
+
+end.

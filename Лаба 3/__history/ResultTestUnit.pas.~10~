@@ -1,0 +1,15 @@
+unit ResultTestUnit;
+
+interface
+
+uses AdaptersUnit, ResultsUnit;
+
+type
+  ResultTest = class(TInterfacedObject, Results)
+  private
+    Adpater1: adapters;
+  end;
+
+implementation
+
+end.

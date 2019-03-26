@@ -1,0 +1,42 @@
+unit AccessAdapterUnit;
+
+interface
+
+uses
+Data.DB , Data.Win.ADODB ,
+System.Generics.Collections {TDictionary} ,
+AdaptersUnit;
+
+type
+  AccessAdapter = class(TInterfacedObject, adapters)
+  private
+    ADOConnection: TADOConnection;
+    function getMenu: TList<string>;
+  published
+    constructor create;
+  end;
+
+implementation
+
+{ AccessAdapter }
+
+constructor AccessAdapter.create;
+begin
+  ADOConnection:=TADOConnection.Create(nil);
+  with (ADOConnection) do
+  begin
+    Provider:='Microsoft.ACE.OLEDB.12.0';
+    Mode:=cmShareDenyNone;
+    LoginPrompt:=False;
+    ConnectionString:='Provider=Microsoft.ACE.OLEDB.12.0;'+
+    'Data source=Phisics.accdb;' + 'Persist Security Info=False';
+    Connected:=true;
+  end;
+end;
+
+function AccessAdapter.getMenu: TList<string>;
+begin
+  result:=Tlist<string>.create;
+end;
+
+end.

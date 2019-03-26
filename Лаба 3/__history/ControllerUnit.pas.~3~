@@ -1,0 +1,26 @@
+unit ControllerUnit;
+
+interface
+
+uses
+Fmx.controls {tpanel},
+fmx.forms,
+controllersunit;
+
+type
+controller = class(tinterfacedobject, controllers)
+private
+panel1:tpanel;
+public
+constructor create(aowner: tform);
+end;
+implementation
+
+{controller}
+constructor controller.create(aowner: TForm);
+begin
+  aowner.Caption:='открытая физика';
+  panel1:=tpanel.Create(aowner);
+  panel1.Parent:=aowner;
+end;
+end.

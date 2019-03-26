@@ -1,0 +1,12 @@
+unit ResultUnit;
+
+interface
+
+type
+results = interface
+
+end;
+
+implementation
+
+end.

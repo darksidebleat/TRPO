@@ -1,0 +1,25 @@
+unit MenuUnit;
+
+interface
+
+uses
+System.Generics.Collections {TDictionary} ,
+MainUnit;
+
+type
+  Menu = class(TInterfacedObject, Main)
+  private
+    function getMenu: TList<string>;
+  end;
+
+implementation
+
+{ Menu }
+
+function Menu.getMenu: TList<string>;
+begin
+  result:=TList<string>.create;
+  result:=;
+end;
+
+end.

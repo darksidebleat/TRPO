@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.Unit1" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Project1" Type="System.String" Value="Project1" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ControllersUnit" Type="System.String" Value="ControllersUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.MenuUnit" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+</TgConfig>

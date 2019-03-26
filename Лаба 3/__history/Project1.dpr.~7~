@@ -1,0 +1,24 @@
+program Project1;
+
+uses
+  FMX.Forms,
+  Unit1 in 'Unit1.pas' {Form1},
+  ControllersUnit in 'ControllersUnit.pas',
+  PhisicsControllerUnit in 'PhisicsControllerUnit.pas',
+  MenuUnit in 'MenuUnit.pas',
+  MainUnit in 'MainUnit.pas',
+  AdaptersUnit in 'AdaptersUnit.pas',
+  AccessAdapterUnit in 'AccessAdapterUnit.pas',
+  TestsUnit in 'TestsUnit.pas',
+  Test1Unit in 'Test1Unit.pas',
+  ResultUnit in 'ResultUnit.pas',
+  ResultsUnit in 'ResultsUnit.pas',
+  ResultTestUnit in 'ResultTestUnit.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

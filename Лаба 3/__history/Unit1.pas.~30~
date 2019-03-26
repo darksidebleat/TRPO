@@ -1,0 +1,252 @@
+unit Unit1;
+
+interface
+
+uses
+  System.Generics.Collections {TDictionary} ,
+  PhisicsControllerUnit {PhisicsController} ,
+  ControllersUnit {Controllers} ,
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Menus, FMX.Edit;
+
+type
+  TForm1 = class(TForm)
+    OpenDialog1: TOpenDialog;
+    MainMenu1: TMainMenu;
+    Файл: TMenuItem;
+    MenuItem1: TMenuItem;
+    procedure FormCreate(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
+  private
+    CheckBox1: TCheckBox;
+    Edit1: TEdit;
+    Button1: TButton;
+    FileName: string;
+    Buttons: TList<TButton>;
+    list: TList<string>;
+    listAnswer: TList<string>;
+    //ButtonsAnswer: TList<TButton>;
+    CheckBoxsAnswer: TList<TCheckBox>;
+    /// <link>aggregation</link>
+    Controller1: Controllers;
+    procedure start(Sender: TObject);
+    procedure startButton;
+    procedure destroyStartButton;
+    procedure startQuest;
+    procedure open;
+    procedure createListAnswer;
+    procedure createQuestCaption;
+    procedure getQuest(Sender: TObject);
+    procedure destroyButtons;
+    procedure createButtons(list: TList<string>);
+    procedure createNextAnswer;
+    procedure destroyCheckBoxsAnswer;  //CheckBox1: TCheckBox;
+    procedure createCheckBoxsAnswer(list: TList<string>);     // CheckBox1: CheckBox;
+  public
+    procedure onButtonClick1(Sender: TObject);
+    procedure onButtonAnswerClick1(Sender: TObject);
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm1.createButtons(list: TList<string>);
+var
+  i: integer;
+  s: string;
+begin
+  i := 0;
+  Buttons := TList<TButton>.Create;
+  self.list := TList<string>.Create;
+  self.list := list;
+  for s in list do
+  begin
+    Buttons.Add(TButton.Create(self));
+    with Buttons.Last do
+    begin
+      Parent := self;
+      Position.Y := i * 41;
+      Text := s;
+      Width := 300;
+      OnClick := onButtonClick1;
+    end;
+    i := i + 1;
+  end;
+end;
+
+procedure TForm1.createCheckBoxsAnswer(list: TList<string>);
+var i:integer;
+s:string;
+begin
+  i:=0;
+  //ButtonsAnswer :=TList<TButton>.Create;
+  CheckBoxsAnswer:= Tlist<TCheckBox>.Create;
+  self.listAnswer:=TList<string>.create;
+  self.listAnswer:=list;
+  for s in listAnswer do
+    begin
+      //ButtonsAnswer.Add(TButton.Create(self));
+      CheckBoxsAnswer.Add(TCheckBox.Create(self));
+      with CheckBoxsAnswer.Last do
+      begin
+        Parent:= self;
+        Position.Y:=i*41;
+        Text:=s;
+        Width:=500;
+        OnClick:=OnButtonAnswerClick1;
+      end;
+      i:=i+1;
+    end;
+end;
+
+procedure TForm1.createListAnswer;
+begin
+  listAnswer := TList<string>.Create;
+  listAnswer := Controller1.getListAnswer;
+  createNextAnswer;
+end;
+
+procedure TForm1.createNextAnswer;
+begin
+  createCheckBoxsAnswer(Controller1.getListAnswer);
+end;
+
+procedure TForm1.createQuestCaption;
+begin
+  self.Caption := Controller1.getQuestCaption;
+end;
+
+procedure TForm1.destroyButtons;
+var
+  b: TButton;
+begin
+  for b in Buttons do
+  begin
+    b.Parent := nil;
+  end;
+  Buttons.DeleteRange(0, Buttons.Count - 1);
+end;
+
+procedure TForm1.destroyCheckBoxsAnswer;
+var
+  //b: TButton;
+  c: TCheckBox;
+begin
+  //for b in ButtonsAnswer do
+  for c in CheckBoxsAnswer do
+  begin
+    //b.Parent := nil;
+    c.Parent := nil;
+  end;
+  CheckBoxsAnswer.DeleteRange(0, CheckBoxsAnswer.Count - 1);
+end;
+
+procedure TForm1.destroyStartButton;
+begin
+  if assigned(Button1) then
+  begin
+    Button1.Parent:=nil;
+    Button1.Free;
+  end;
+  if assigned(Edit1) then
+  begin
+    Edit1.Parent:= nil;
+    Edit1.Free;
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  //open;
+
+end;
+
+procedure TForm1.getQuest(Sender: TObject);
+begin
+  destroyStartButton;
+  if Controller1.start then
+  begin
+    createQuestCaption;
+    createListAnswer;
+    Controller1.FIO(Self.Edit1.Text);
+  end
+  else
+  begin
+    self.Caption:= 'Результат - '+ Controller1.getFIO;
+  end;
+end;
+
+procedure TForm1.MenuItem1Click(Sender: TObject);
+begin
+  if openDialog1.Execute then
+  begin
+    FileName:=openDialog1.FileName;
+    open;
+  end
+  else ShowMessage('Open file was cancelled');
+end;
+
+procedure TForm1.onButtonAnswerClick1(Sender: TObject);
+begin
+  destroyCheckBoxsAnswer;
+  startQuest;
+end;
+
+procedure TForm1.onButtonClick1(Sender: TObject);
+begin
+  Controller1.setTest((Sender as TButton).Text);
+  destroyButtons;
+  startButton;
+end;
+
+procedure TForm1.open;
+var list:TList<string>;
+begin
+  Controller1 := PhisicsController.Create;
+  list := TList<string>.Create;
+  list := Controller1.getMenu(FileName);
+  createButtons(list);
+end;
+
+procedure TForm1.start(Sender: TObject);
+begin
+  Controller1.FIO(Self.Edit1.Text);
+  destroyStartButton;
+  getQuest(nil);
+end;
+
+procedure TForm1.startButton;
+var w, h:integer;
+begin
+  Button1:= TButton.Create(self);
+  h:= self.ClientHeight;
+  w:= self.ClientWidth;
+  with Button1 do
+  begin
+    Parent:=self;
+    Position.Y:=100;
+    Position.X:=100;
+    Text:='Начать';
+    OnCLick:=start;
+  end;
+  Edit1:= TEdit.Create(Self);
+  with Edit1 do
+  begin
+    Parent:= Self;
+    Position.Y:=50;
+    Position.X:=50;
+    Text:= 'ФИО, №группы';
+    Width:=500;
+  end;
+end;
+
+procedure TForm1.startQuest;
+begin
+  startButton;
+end;
+
+end.

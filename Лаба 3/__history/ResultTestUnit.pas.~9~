@@ -1,0 +1,12 @@
+unit ResultTestUnit;
+
+interface
+
+type
+  ResultTest = class
+
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,15 @@
+unit AdaptersUnit;
+
+interface
+
+uses
+System.Generics.Collections {TDictionary};
+
+type
+  adapters = interface
+    function getMenu: TList<string>;
+  end;
+
+implementation
+
+end.

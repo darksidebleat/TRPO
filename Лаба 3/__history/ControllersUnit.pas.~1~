@@ -1,0 +1,14 @@
+unit ControllersUnit;
+
+interface
+<<<<<<< HEAD
+type
+  Controllers = interface
+
+  end;
+=======
+
+>>>>>>> parent of 1640e2d... 2 лаба
+implementation
+
+end.

@@ -1,0 +1,53 @@
+unit PhisicsControllerUnit;
+
+interface
+
+uses
+  MenuUnit, MainUnit, test1unit, testsunit,
+  System.Generics.Collections {TDictionary} ,
+  ControllersUnit;
+
+type
+  PhisicsController = class(TInterfacedObject, Controllers)
+  private
+    FileName : string;
+    /// <link>aggregation</link>
+    Test: Tests;
+    /// <link>aggregation</link>
+    Menu1: Main;
+  public
+    procedure setTest(caption: string);
+    function getMenu(FileName: string): TList<string>;
+    function getQuestCaption: string;
+    function getListAnswer: string;
+  end;
+
+implementation
+
+{ PhisicsController }
+
+function PhisicsController.getListAnswer: string;
+begin
+   result:= Test.getListAnswer;
+end;
+
+function PhisicsController.getMenu(FileName: string): TList<string>;
+begin
+  Self.FileName:= FileName;
+  result := TList<string>.create;
+  Menu1 := Menu.create;
+  result := Menu1.getMenu(FileName);
+end;
+
+function PhisicsController.getQuestCaption: string;
+begin
+  result:= Test.getQuestCaption;
+end;
+
+procedure PhisicsController.setTest(caption: string);
+begin
+  Test:= Test1.create(FileName);
+  Test.setTest(caption);
+end;
+
+end.

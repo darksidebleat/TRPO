@@ -1,0 +1,45 @@
+unit Test1Unit;
+
+interface
+
+uses
+TestsUnit,
+System.Generics.Collections {TDictionary},
+AdaptersUnit;
+
+type
+  Test1 = class(TInterfacedObject, Tests)
+  private
+  ///<link>aggregation</link>
+  Adapter:Adapters;
+  public
+    procedure setTest(caption: string);
+    function getQuest: TList<string>;
+    function getAnswer: TList<string>;
+    function getCorrect: TDictionary<integer, integer>;
+  end;
+implementation
+
+{ Test1 }
+
+function Test1.getAnswer: TList<string>;
+begin
+
+end;
+
+function Test1.getCorrect: TDictionary<integer, integer>;
+begin
+
+end;
+
+function Test1.getQuest: TList<string>;
+begin
+
+end;
+
+procedure Test1.setTest(caption: string);
+begin
+
+end;
+
+end.

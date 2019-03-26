@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.Unit1" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.AccessAdapterUnit" Type="System.String" Value="AccessAdapterUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Project1" Type="System.String" Value="Project1" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.MainUnit" Type="System.String" Value="MainUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.PhisicsControllerUnit" Type="System.String" Value="PhisicsControllerUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ControllersUnit" Type="System.String" Value="ControllersUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Test1Unit" Type="System.String" Value="Test1Unit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.TestsUnit" Type="System.String" Value="TestsUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.MenuUnit" Type="System.String" Value="MenuUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ResultsUnit" Type="System.String" Value="ResultsUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ResultTestUnit" Type="System.String" Value="ResultTestUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ResultUnit" Type="System.String" Value="ResultUnit" Category="General" IsBrowsable="False" />
+</TgConfig>
