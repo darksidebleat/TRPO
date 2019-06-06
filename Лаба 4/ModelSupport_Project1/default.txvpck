@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="1ybc75b640kacq4wf_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::04vtqvp6cu9erccqo_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="700,180,160,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:AccessAdapterUnit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:AccessAdapterUnit.AccessAdapter" />
+    </reference>
+    <reference referencedUin="design:view:::obdh0ac17flp95dut_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="440,20,100,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:Unit1.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:Unit1.TForm1" />
+    </reference>
+    <reference referencedUin="design:view:::uc0k7fljrfldwem7m_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="660,220,101,134" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:Project1.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::lcs2hcmltenpsm0xr_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="540,320,137,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:ControllersUnit.Controllers" />
+      <reference referencedUin="delphi:e_class:src:Project1:ControllersUnit.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::sbq2g7w97bp05cwyl_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="328,1,104,151" />
+      <reference referencedUin="delphi:e_class:src:Project1:MainUnit.Main" />
+      <reference referencedUin="delphi:e_class:src:Project1:MainUnit.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::0hzq4chf7pk_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="580,0,170,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:PhisicsControllerUnit.PhisicsController" />
+      <reference referencedUin="delphi:e_class:src:Project1:PhisicsControllerUnit.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::xnrvpn0f6ue_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="328,171,127,151" />
+      <reference referencedUin="delphi:e_class:src:Project1:AdaptersUnit.adapters" />
+      <reference referencedUin="delphi:e_class:src:Project1:AdaptersUnit.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::swyqmt73gj2rs5qzj_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="328,341,108,151" />
+      <reference referencedUin="delphi:e_class:src:Project1:MenuUnit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:MenuUnit.Menu" />
+    </reference>
+    <reference referencedUin="design:view:::enpmk60izjkx1jlxp_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="280,320,108,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:Test1Unit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:Test1Unit.Test1" />
+    </reference>
+    <reference referencedUin="design:view:::qmn8hizm8c7ycj47i_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="440,380,107,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:Project1:TestsUnit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:TestsUnit.Tests" />
+    </reference>
+    <reference referencedUin="design:view:::uranllpi1st_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="493,171,112,151" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TForm1">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="0,0,240,660" />
+      <property name="location_set_by_user" value="True" />
+      <property name="bounds_setted_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.OpenDialog1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.MainMenu1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Файл" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.MenuItem1" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.FormCreate(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.MenuItem1Click(System.TObject)" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.NextButton" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.CheckBox1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Edit1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Button1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.FileName" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Buttons" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.list" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.listAnswer" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.CheckBoxsAnswer" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Controller1" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.start(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.startButton()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.destroyStartButton()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.startQuest()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.open()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createListAnswer()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createQuestCaption()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.getQuest(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.destroyButtons()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createButtons(System.Generics.Collections.TList&lt;System.string&gt;)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createNextAnswer()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.destroyCheckBoxsAnswer()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createCheckBoxsAnswer(System.Generics.Collections.TList&lt;System.string&gt;)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.onButtonClick1(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.onButtonAnswerClick1(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.onCheckBoxAnswerClick1(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.createNextButton(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.destroyNextButton()" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:AdaptersUnit.adapters">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="700,20,270,141" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_method:src:Project1:AdaptersUnit.adapters.getMenu()" />
+      <reference referencedUin="delphi:e_method:src:Project1:AdaptersUnit.adapters.setTest(System.string)" />
+      <reference referencedUin="delphi:e_method:src:Project1:AdaptersUnit.adapters.getQuest()" />
+      <reference referencedUin="delphi:e_method:src:Project1:AdaptersUnit.adapters.getAnswerFalse()" />
+      <reference referencedUin="delphi:e_method:src:Project1:AdaptersUnit.adapters.getAnswerTrue()" />
+    </reference>
+    <reference referencedUin="design:view:::mjb17b2a72o_v">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_class:src:Project1:ResultTestUnit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:ResultTestUnit.ResultTest" />
+    </reference>
+    <reference referencedUin="design:view:::npos470og4t61v8ai_v">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_class:src:Project1:ResultsUnit.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:Project1:ResultsUnit.Results" />
+    </reference>
+  </view>
+</nodeSet>

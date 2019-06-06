@@ -1,0 +1,13 @@
+unit AccessAdapterUnit;
+
+interface
+
+uses AdaptersUnit;
+
+type
+  AccessAdapter = class(TInterfacedObject, adapters)
+  end;
+
+implementation
+
+end.

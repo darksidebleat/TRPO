@@ -1,0 +1,12 @@
+unit AdaptersUnit;
+
+interface
+
+type
+  adapters = interface
+
+  end;
+
+implementation
+
+end.
